@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Atharv | Engineering Portfolio</title>
+    <title>Atharv // Digital Lab</title>
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -15,263 +15,636 @@
         }
 
         body {
+            background: #050505;
+            color: white;
             font-family: Arial, sans-serif;
-            background: #0b0f19;
-            color: #ffffff;
-            line-height: 1.6;
+            overflow-x: hidden;
         }
 
+        /* BACKGROUND */
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(0,255,200,.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,255,200,.035) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: -2;
+        }
+
+        .glow {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: #00ffc3;
+            filter: blur(180px);
+            opacity: .08;
+            top: 20%;
+            left: 40%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* NAVBAR */
+
         nav {
+            height: 75px;
+            width: 100%;
             position: fixed;
             top: 0;
-            width: 100%;
-            padding: 18px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(11, 15, 25, 0.9);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
+            padding: 0 7%;
+            background: rgba(5,5,5,.7);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid #151515;
+            z-index: 100;
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: bold;
+            letter-spacing: 3px;
         }
 
         .logo span {
-            color: #00d9ff;
+            color: #00ffc3;
         }
 
         nav ul {
             display: flex;
-            list-style: none;
             gap: 30px;
+            list-style: none;
         }
 
         nav a {
-            color: #ddd;
+            color: #888;
             text-decoration: none;
-            transition: 0.3s;
+            font-size: 13px;
+            transition: .3s;
         }
 
         nav a:hover {
-            color: #00d9ff;
+            color: #00ffc3;
         }
 
-        section {
-            padding: 100px 10%;
+        .status {
+            font-size: 11px;
+            color: #00ffc3;
+            border: 1px solid #00ffc355;
+            padding: 8px 13px;
+            border-radius: 20px;
         }
 
-        #home {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .dot {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            background: #00ffc3;
+            border-radius: 50%;
+            margin-right: 6px;
+            box-shadow: 0 0 10px #00ffc3;
         }
+
+        /* HERO */
 
         .hero {
-            max-width: 900px;
-            text-align: center;
+            min-height: 100vh;
+            padding: 150px 8% 80px;
+            display: flex;
+            align-items: center;
         }
 
-        .hero h1 {
-            font-size: clamp(45px, 8vw, 85px);
-            margin-bottom: 10px;
+        .hero-left {
+            width: 65%;
         }
 
-        .hero h1 span {
-            color: #00d9ff;
-        }
-
-        .hero h2 {
-            color: #aaa;
-            font-weight: normal;
+        .terminal {
+            color: #00ffc3;
+            font-family: monospace;
+            font-size: 14px;
             margin-bottom: 20px;
         }
 
-        .hero p {
-            color: #aaa;
+        .terminal span {
+            color: #555;
+        }
+
+        h1 {
+            font-size: clamp(55px, 9vw, 120px);
+            line-height: .9;
+            letter-spacing: -5px;
+        }
+
+        h1 .green {
+            color: #00ffc3;
+            text-shadow: 0 0 35px rgba(0,255,195,.25);
+        }
+
+        .hero-description {
             max-width: 650px;
-            margin: auto;
-            font-size: 18px;
+            color: #777;
+            margin-top: 30px;
+            font-size: 17px;
+            line-height: 1.8;
         }
 
         .buttons {
-            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+            margin-top: 35px;
         }
 
         .btn {
-            display: inline-block;
-            padding: 12px 25px;
-            margin: 5px;
-            border-radius: 6px;
+            padding: 14px 24px;
+            border-radius: 4px;
             text-decoration: none;
-            border: 1px solid #00d9ff;
-            color: #00d9ff;
-            transition: 0.3s;
+            font-size: 13px;
+            transition: .3s;
         }
 
-        .btn:hover {
-            background: #00d9ff;
-            color: #000;
+        .primary {
+            background: #00ffc3;
+            color: #00110d;
+            font-weight: bold;
+            box-shadow: 0 0 25px rgba(0,255,195,.2);
+        }
+
+        .primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 0 40px rgba(0,255,195,.5);
+        }
+
+        .outline {
+            border: 1px solid #333;
+            color: #aaa;
+        }
+
+        .outline:hover {
+            border-color: #00ffc3;
+            color: #00ffc3;
+        }
+
+        /* RIGHT SIDE */
+
+        .hero-right {
+            width: 35%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .orb {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #00ffc344;
+            border-radius: 50%;
+            position: relative;
+            animation: rotate 15s linear infinite;
+        }
+
+        .orb::before {
+            content: "";
+            position: absolute;
+            inset: 35px;
+            border: 1px solid #00ffc333;
+            border-radius: 50%;
+        }
+
+        .orb::after {
+            content: "A";
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 130px;
+            font-weight: bold;
+            color: #00ffc3;
+            text-shadow: 0 0 50px #00ffc3;
+            animation: counter 15s linear infinite;
+        }
+
+        .orb-dot {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: #00ffc3;
+            border-radius: 50%;
+            top: 10px;
+            left: 50%;
+            box-shadow: 0 0 30px #00ffc3;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes counter {
+            from {
+                transform: rotate(0);
+            }
+            to {
+                transform: rotate(-360deg);
+            }
+        }
+
+        /* STATS */
+
+        .stats {
+            border-top: 1px solid #181818;
+            border-bottom: 1px solid #181818;
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+        }
+
+        .stat {
+            padding: 30px 7%;
+            border-right: 1px solid #181818;
+        }
+
+        .stat-number {
+            font-size: 30px;
+            color: #00ffc3;
+        }
+
+        .stat p {
+            color: #666;
+            margin-top: 5px;
+            font-size: 12px;
+        }
+
+        /* SECTIONS */
+
+        section {
+            padding: 120px 8%;
+        }
+
+        .label {
+            color: #00ffc3;
+            font-family: monospace;
+            font-size: 12px;
+            margin-bottom: 15px;
         }
 
         .title {
-            text-align: center;
-            font-size: 40px;
+            font-size: 45px;
             margin-bottom: 50px;
         }
 
         .title span {
-            color: #00d9ff;
+            color: #00ffc3;
         }
+
+        /* ABOUT */
 
         .about {
-            max-width: 850px;
-            margin: auto;
-            text-align: center;
-            color: #aaa;
-            font-size: 18px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
         }
 
+        .about p {
+            color: #777;
+            line-height: 2;
+            font-size: 16px;
+        }
+
+        .code-box {
+            background: #090909;
+            border: 1px solid #202020;
+            border-radius: 8px;
+            padding: 25px;
+            font-family: monospace;
+            color: #777;
+            box-shadow: 0 0 40px rgba(0,255,195,.04);
+        }
+
+        .code-box .green-text {
+            color: #00ffc3;
+        }
+
+        .code-box .purple {
+            color: #b47cff;
+        }
+
+        .code-box .yellow {
+            color: #ffd166;
+        }
+
+        /* SKILLS */
+
         .skills {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
-            max-width: 900px;
-            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
         }
 
         .skill {
-            padding: 25px;
-            background: #121827;
-            border: 1px solid #202b40;
-            border-radius: 10px;
-            text-align: center;
-            transition: 0.3s;
+            padding: 15px 22px;
+            border: 1px solid #222;
+            background: #090909;
+            color: #999;
+            transition: .3s;
         }
 
         .skill:hover {
-            transform: translateY(-5px);
-            border-color: #00d9ff;
+            border-color: #00ffc3;
+            color: #00ffc3;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0,255,195,.08);
         }
 
-        .skill h3 {
-            margin-bottom: 8px;
-            color: #00d9ff;
-        }
-
-        .skill p {
-            color: #999;
-        }
+        /* PROJECTS */
 
         .projects {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(3,1fr);
+            gap: 20px;
         }
 
         .project {
-            background: #121827;
-            border: 1px solid #202b40;
-            border-radius: 12px;
+            min-height: 320px;
             padding: 30px;
-            transition: 0.3s;
+            border: 1px solid #1d1d1d;
+            background:
+                linear-gradient(145deg,#0c0c0c,#070707);
+            position: relative;
+            overflow: hidden;
+            transition: .4s;
         }
 
         .project:hover {
-            transform: translateY(-7px);
-            border-color: #00d9ff;
+            transform: translateY(-8px);
+            border-color: #00ffc355;
+        }
+
+        .project-number {
+            font-family: monospace;
+            color: #333;
+            font-size: 13px;
+        }
+
+        .project-icon {
+            font-size: 50px;
+            margin: 35px 0 20px;
         }
 
         .project h3 {
-            color: #00d9ff;
+            font-size: 22px;
             margin-bottom: 12px;
         }
 
         .project p {
-            color: #999;
+            color: #666;
+            font-size: 13px;
+            line-height: 1.7;
         }
 
-        .tag {
-            display: inline-block;
-            margin-top: 15px;
-            margin-right: 5px;
-            padding: 5px 10px;
-            border-radius: 20px;
-            background: #1b2638;
-            color: #aaa;
-            font-size: 12px;
+        .project-tags {
+            position: absolute;
+            bottom: 25px;
+            left: 30px;
+            color: #00ffc3;
+            font-size: 10px;
+            font-family: monospace;
         }
+
+        /* GOALS */
+
+        .goals {
+            border-top: 1px solid #181818;
+            border-bottom: 1px solid #181818;
+        }
+
+        .goal-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 20px;
+        }
+
+        .goal {
+            padding: 35px;
+            background: #080808;
+            border-left: 2px solid #00ffc3;
+        }
+
+        .goal h3 {
+            margin-bottom: 15px;
+        }
+
+        .goal p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        /* CONTACT */
 
         .contact {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
+        }
+
+        .contact h2 {
+            font-size: clamp(45px,7vw,90px);
+            line-height: 1;
+        }
+
+        .contact h2 span {
+            color: #00ffc3;
         }
 
         .contact p {
-            color: #aaa;
-            margin-bottom: 20px;
+            color: #666;
+            margin: 25px 0;
         }
+
+        /* FOOTER */
 
         footer {
-            text-align: center;
-            padding: 25px;
-            border-top: 1px solid #202b40;
-            color: #666;
+            border-top: 1px solid #181818;
+            padding: 25px 8%;
+            display: flex;
+            justify-content: space-between;
+            color: #444;
+            font-size: 11px;
+            font-family: monospace;
         }
 
-        @media (max-width: 600px) {
+        /* MOBILE */
+
+        @media(max-width:900px) {
 
             nav ul {
                 display: none;
             }
 
-            section {
-                padding: 90px 7%;
+            .status {
+                display: none;
             }
 
-            .title {
-                font-size: 32px;
+            .hero {
+                display: block;
+                padding-top: 140px;
+            }
+
+            .hero-left {
+                width: 100%;
+            }
+
+            .hero-right {
+                width: 100%;
+                margin-top: 70px;
+            }
+
+            .orb {
+                width: 220px;
+                height: 220px;
+            }
+
+            .orb::after {
+                font-size: 90px;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .goal-grid {
+                grid-template-columns: 1fr;
             }
         }
+
+        @media(max-width:500px) {
+
+            h1 {
+                font-size: 55px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                text-align: center;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
     </style>
 </head>
 
+
 <body>
 
+    <div class="glow"></div>
+
+
+    <!-- NAVIGATION -->
+
     <nav>
-        <div class="logo">Atharv<span>.</span></div>
+
+        <div class="logo">
+            ATHARV<span>.</span>
+        </div>
 
         <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#skills">STACK</a></li>
+            <li><a href="#projects">PROJECTS</a></li>
+            <li><a href="#goals">VISION</a></li>
         </ul>
+
+        <div class="status">
+            <span class="dot"></span>
+            BUILDING
+        </div>
+
     </nav>
 
 
-    <!-- HOME -->
+    <!-- HERO -->
 
-    <section id="home">
+    <section class="hero">
 
-        <div class="hero">
+        <div class="hero-left">
 
-            <h1>Hi, I'm <span>Atharv</span></h1>
+            <div class="terminal">
+                atharv@digital-lab:~$ whoami
+            </div>
 
-            <h2>CSE Student • Engineer • Technology Enthusiast</h2>
+            <h1>
+                BUILD.
+                <br>
+                <span class="green">BREAK.</span>
+                <br>
+                REBUILD.
+            </h1>
 
-            <p>
-                I am interested in building things at the intersection of
-                software, artificial intelligence, robotics and physics.
-                Currently exploring C++, algorithms, AI/ML and engineering.
+            <p class="hero-description">
+
+                Computer Science student exploring the intersection of
+                software, artificial intelligence, robotics, physics and
+                real-world engineering.
+
+                <br><br>
+
+                I don't just want to use technology.
+                I want to understand what is happening underneath it —
+                and eventually build systems of my own.
+
             </p>
 
             <div class="buttons">
-                <a href="#projects" class="btn">View Projects</a>
-                <a href="#contact" class="btn">Contact Me</a>
+
+                <a href="#projects" class="btn primary">
+                    ENTER MY LAB →
+                </a>
+
+                <a href="#contact" class="btn outline">
+                    CONTACT
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-right">
+
+            <div class="orb">
+
+                <div class="orb-dot"></div>
+
             </div>
 
         </div>
@@ -279,35 +652,144 @@
     </section>
 
 
+    <!-- STATS -->
+
+    <div class="stats">
+
+        <div class="stat">
+            <div class="stat-number">CSE</div>
+            <p>ENGINEERING</p>
+        </div>
+
+        <div class="stat">
+            <div class="stat-number">C++</div>
+            <p>PRIMARY LANGUAGE</p>
+        </div>
+
+        <div class="stat">
+            <div class="stat-number">AI</div>
+            <p>EXPLORING</p>
+        </div>
+
+        <div class="stat">
+            <div class="stat-number">∞</div>
+            <p>CURIOSITY</p>
+        </div>
+
+    </div>
+
+
     <!-- ABOUT -->
 
     <section id="about">
 
-        <h2 class="title">About <span>Me</span></h2>
+        <div class="label">
+            01 // ABOUT
+        </div>
+
+        <h2 class="title">
+            The person behind
+            <span>the code.</span>
+        </h2>
 
         <div class="about">
 
-            <p>
-                I'm a Computer Science engineering student with a strong
-                interest in technology and science. My current focus is on
-                strengthening my programming fundamentals and moving deeper
-                into Data Structures & Algorithms, robotics and AI.
-            </p>
+            <div>
 
-            <br>
+                <p>
 
-            <p>
-                Beyond software, I am interested in understanding how real
-                engineering systems work — from robots and autonomous
-                machines to spacecraft, electronics and computer hardware.
-            </p>
+                    I'm Atharv, a Computer Science Engineering student
+                    interested in understanding technology from the
+                    software layer all the way down to the physical world.
 
-            <br>
+                    <br><br>
 
-            <p>
-                I also have a long-term interest in quantum physics and
-                advanced mathematics.
-            </p>
+                    My current journey revolves around C++, Data Structures
+                    & Algorithms, Python, AI/ML and robotics.
+
+                    <br><br>
+
+                    But the curiosity doesn't stop at software.
+
+                    CPUs, GPUs, MOSFETs, autonomous robots, rockets,
+                    spacecraft and quantum systems are all things I want
+                    to understand.
+
+                    <br><br>
+
+                    The long-term goal is simple:
+
+                    <strong style="color:white">
+                        learn deeply → build aggressively → solve real problems.
+                    </strong>
+
+                </p>
+
+            </div>
+
+
+            <div class="code-box">
+
+                <p>
+                    <span class="purple">class</span>
+                    <span class="yellow">Atharv</span>
+                    {
+                </p>
+
+                <br>
+
+                <p>
+                    &nbsp;&nbsp;
+                    <span class="green-text">interest</span>
+                    = [
+                </p>
+
+                <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;"AI",
+                </p>
+
+                <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;"Robotics",
+                </p>
+
+                <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;"Physics",
+                </p>
+
+                <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;"Quantum",
+                </p>
+
+                <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;"Space"
+                </p>
+
+                <p>
+                    &nbsp;&nbsp;];
+                </p>
+
+                <br>
+
+                <p>
+                    &nbsp;&nbsp;
+                    <span class="green-text">mission</span>
+                    =
+                    "Build something meaningful";
+                </p>
+
+                <br>
+
+                <p>
+                    &nbsp;&nbsp;
+                    <span class="green-text">status</span>
+                    = "Learning...";
+                </p>
+
+                <p>
+                    }
+                </p>
+
+            </div>
 
         </div>
 
@@ -318,39 +800,29 @@
 
     <section id="skills">
 
-        <h2 class="title">My <span>Skills</span></h2>
+        <div class="label">
+            02 // TECH STACK
+        </div>
+
+        <h2 class="title">
+            Things I'm
+            <span>learning.</span>
+        </h2>
 
         <div class="skills">
 
-            <div class="skill">
-                <h3>C++</h3>
-                <p>Programming & problem solving</p>
-            </div>
-
-            <div class="skill">
-                <h3>Python</h3>
-                <p>Programming & scientific computing</p>
-            </div>
-
-            <div class="skill">
-                <h3>DSA</h3>
-                <p>Algorithms & data structures</p>
-            </div>
-
-            <div class="skill">
-                <h3>AI / ML</h3>
-                <p>Machine learning exploration</p>
-            </div>
-
-            <div class="skill">
-                <h3>Robotics</h3>
-                <p>Autonomous systems & hardware</p>
-            </div>
-
-            <div class="skill">
-                <h3>Physics</h3>
-                <p>Quantum physics & mathematical physics</p>
-            </div>
+            <div class="skill">C++</div>
+            <div class="skill">Python</div>
+            <div class="skill">DSA</div>
+            <div class="skill">Algorithms</div>
+            <div class="skill">AI / ML</div>
+            <div class="skill">Computer Vision</div>
+            <div class="skill">Robotics</div>
+            <div class="skill">IoT</div>
+            <div class="skill">Electronics</div>
+            <div class="skill">Mathematics</div>
+            <div class="skill">Quantum Physics</div>
+            <div class="skill">Space Technology</div>
 
         </div>
 
@@ -361,74 +833,146 @@
 
     <section id="projects">
 
-        <h2 class="title">Featured <span>Projects</span></h2>
+        <div class="label">
+            03 // PROJECTS
+        </div>
+
+        <h2 class="title">
+            Ideas becoming
+            <span>systems.</span>
+        </h2>
 
         <div class="projects">
 
+
             <div class="project">
+
+                <div class="project-number">
+                    PROJECT_001
+                </div>
+
+                <div class="project-icon">
+                    🤖
+                </div>
 
                 <h3>RoboDog</h3>
 
                 <p>
-                    A robotics concept focused on developing an autonomous
-                    robotic platform capable of interacting with and
-                    assisting in real-world environments.
+                    Autonomous robotic platform exploring navigation,
+                    perception, interaction and real-world assistance.
                 </p>
 
-                <span class="tag">Robotics</span>
-                <span class="tag">AI</span>
-                <span class="tag">Hardware</span>
+                <div class="project-tags">
+                    ROBOTICS // AI // HARDWARE
+                </div>
 
             </div>
 
 
             <div class="project">
 
-                <h3>ATECH</h3>
+                <div class="project-number">
+                    PROJECT_002
+                </div>
 
-                <p>
-                    A technology-focused concept exploring AI assistants,
-                    intelligent devices and futuristic engineering
-                    applications.
-                </p>
-
-                <span class="tag">AI</span>
-                <span class="tag">Technology</span>
-                <span class="tag">Innovation</span>
-
-            </div>
-
-
-            <div class="project">
+                <div class="project-icon">
+                    🎧
+                </div>
 
                 <h3>JARVIS</h3>
 
                 <p>
-                    An AI assistant concept designed around a compact
-                    wearable interface, intelligent interaction and
-                    personalized assistance.
+                    A wearable AI assistant concept focused on natural
+                    interaction, voice intelligence and personalized
+                    assistance.
                 </p>
 
-                <span class="tag">AI</span>
-                <span class="tag">IoT</span>
-                <span class="tag">Voice</span>
+                <div class="project-tags">
+                    AI // IOT // VOICE
+                </div>
 
             </div>
 
 
             <div class="project">
 
-                <h3>Engineering Exploration</h3>
+                <div class="project-number">
+                    PROJECT_003
+                </div>
+
+                <div class="project-icon">
+                    ⚡
+                </div>
+
+                <h3>ATECH</h3>
 
                 <p>
-                    Exploring the fundamentals behind CPUs, electronics,
-                    rockets, autonomous robots and other complex engineering
-                    systems.
+                    A technology initiative exploring intelligent products,
+                    engineering systems and futuristic applications.
                 </p>
 
-                <span class="tag">Engineering</span>
-                <span class="tag">Physics</span>
-                <span class="tag">Hardware</span>
+                <div class="project-tags">
+                    SYSTEMS // AI // INNOVATION
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- VISION -->
+
+    <section id="goals" class="goals">
+
+        <div class="label">
+            04 // VISION
+        </div>
+
+        <h2 class="title">
+            What's
+            <span>next?</span>
+        </h2>
+
+        <div class="goal-grid">
+
+            <div class="goal">
+
+                <h3>ROBOTICS</h3>
+
+                <p>
+                    Build physical machines instead of only writing
+                    simulations. Learn sensors, control systems,
+                    embedded systems and autonomous navigation.
+                </p>
+
+            </div>
+
+
+            <div class="goal">
+
+                <h3>AI</h3>
+
+                <p>
+                    Move from using AI tools toward understanding and
+                    building intelligent systems, agents and machine
+                    learning models.
+                </p>
+
+            </div>
+
+
+            <div class="goal">
+
+                <h3>QUANTUM</h3>
+
+                <p>
+                    Develop the mathematics and physics required to
+                    understand quantum mechanics and eventually
+                    quantum computing.
+                </p>
 
             </div>
 
@@ -439,19 +983,26 @@
 
     <!-- CONTACT -->
 
-    <section id="contact">
+    <section id="contact" class="contact">
 
-        <div class="contact">
+        <div>
 
-            <h2 class="title">Let's <span>Connect</span></h2>
+            <div class="label">
+                05 // CONNECTION
+            </div>
+
+            <h2>
+                LET'S BUILD
+                <br>
+                <span>SOMETHING.</span>
+            </h2>
 
             <p>
-                Interested in technology, robotics, AI or physics?
-                Feel free to connect.
+                Open to technology, engineering and interesting projects.
             </p>
 
-            <a href="mailto:your@email.com" class="btn">
-                Email Me
+            <a href="mailto:your@email.com" class="btn primary">
+                SEND MESSAGE →
             </a>
 
         </div>
@@ -459,9 +1010,20 @@
     </section>
 
 
+    <!-- FOOTER -->
+
     <footer>
-        © 2026 Atharv. Built with HTML & CSS.
+
+        <div>
+            ATHARV // DIGITAL LAB
+        </div>
+
+        <div>
+            © 2026
+        </div>
+
     </footer>
+
 
 </body>
 </html>
