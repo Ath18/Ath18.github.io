@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Atharv | Engineer & Builder</title>
+    <title>Atharv // Digital Lab</title>
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -14,745 +14,637 @@
             scroll-behavior: smooth;
         }
 
-        :root {
-            --bg: #03060c;
-            --card: #080d16;
-            --border: #172333;
-            --blue: #38bdf8;
-            --cyan: #00e5ff;
-            --purple: #9b6cff;
-            --text: #f5f7fa;
-            --muted: #8b96a8;
-        }
-
         body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: Arial, Helvetica, sans-serif;
+            background: #050505;
+            color: white;
+            font-family: Arial, sans-serif;
             overflow-x: hidden;
         }
+
+        /* BACKGROUND */
 
         body::before {
             content: "";
             position: fixed;
-            width: 500px;
-            height: 500px;
-            background: #006eff;
-            filter: blur(180px);
-            opacity: 0.08;
-            top: 20%;
-            left: -200px;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(0,255,200,.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,255,200,.035) 1px, transparent 1px);
+            background-size: 50px 50px;
             pointer-events: none;
+            z-index: -2;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
+        .glow {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: #00ffc3;
+            filter: blur(180px);
+            opacity: .08;
+            top: 20%;
+            left: 40%;
+            pointer-events: none;
+            z-index: -1;
         }
 
         /* NAVBAR */
 
         nav {
+            height: 75px;
+            width: 100%;
             position: fixed;
             top: 0;
-            left: 0;
-            width: 100%;
-            height: 70px;
-            padding: 0 5%;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            background: rgba(3, 6, 12, 0.75);
-            backdrop-filter: blur(18px);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            z-index: 1000;
+            align-items: center;
+            padding: 0 7%;
+            background: rgba(5,5,5,.7);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid #151515;
+            z-index: 100;
         }
 
         .logo {
             font-size: 22px;
             font-weight: bold;
-            letter-spacing: 7px;
+            letter-spacing: 3px;
         }
 
         .logo span {
-            color: var(--blue);
+            color: #00ffc3;
         }
 
-        .nav-links {
+        nav ul {
             display: flex;
             gap: 30px;
             list-style: none;
         }
 
-        .nav-links a {
-            color: #aeb7c5;
-            font-size: 14px;
-            transition: 0.3s;
+        nav a {
+            color: #888;
+            text-decoration: none;
+            font-size: 13px;
+            transition: .3s;
         }
 
-        .nav-links a:hover {
-            color: white;
+        nav a:hover {
+            color: #00ffc3;
         }
 
-        .nav-button {
-            border: 1px solid var(--blue);
-            padding: 11px 20px;
-            border-radius: 30px;
-            color: var(--blue);
-            box-shadow: 0 0 15px rgba(56,189,248,0.15);
-            transition: 0.3s;
+        .status {
+            font-size: 11px;
+            color: #00ffc3;
+            border: 1px solid #00ffc355;
+            padding: 8px 13px;
+            border-radius: 20px;
         }
 
-        .nav-button:hover {
-            background: var(--blue);
-            color: #001018;
-            box-shadow: 0 0 30px rgba(56,189,248,0.5);
+        .dot {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            background: #00ffc3;
+            border-radius: 50%;
+            margin-right: 6px;
+            box-shadow: 0 0 10px #00ffc3;
         }
 
         /* HERO */
 
         .hero {
             min-height: 100vh;
-            padding: 120px 6% 50px;
+            padding: 150px 8% 80px;
             display: flex;
             align-items: center;
-            position: relative;
-            overflow: hidden;
         }
 
-        .hero::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(circle at 75% 50%, rgba(40,130,255,0.18), transparent 35%),
-                linear-gradient(90deg, #03060c 10%, transparent 65%);
-            pointer-events: none;
+        .hero-left {
+            width: 65%;
         }
 
-        .hero-content {
-            width: 55%;
-            position: relative;
-            z-index: 2;
-        }
-
-        .eyebrow {
-            color: var(--blue);
-            font-size: 12px;
-            letter-spacing: 5px;
-            font-weight: bold;
+        .terminal {
+            color: #00ffc3;
+            font-family: monospace;
+            font-size: 14px;
             margin-bottom: 20px;
         }
 
-        .hero h1 {
-            font-size: clamp(45px, 6vw, 78px);
-            line-height: 1.05;
-            margin-bottom: 25px;
+        .terminal span {
+            color: #555;
         }
 
-        .gradient-text {
-            background: linear-gradient(90deg, #fff, #4cc9ff, #9270ff);
-            -webkit-background-clip: text;
-            color: transparent;
+        h1 {
+            font-size: clamp(55px, 9vw, 120px);
+            line-height: .9;
+            letter-spacing: -5px;
+        }
+
+        h1 .green {
+            color: #00ffc3;
+            text-shadow: 0 0 35px rgba(0,255,195,.25);
         }
 
         .hero-description {
-            color: var(--muted);
-            max-width: 600px;
+            max-width: 650px;
+            color: #777;
+            margin-top: 30px;
             font-size: 17px;
             line-height: 1.8;
         }
 
-        .hero-buttons {
+        .buttons {
             display: flex;
             gap: 15px;
             margin-top: 35px;
         }
 
-        .primary-btn,
-        .secondary-btn {
+        .btn {
             padding: 14px 24px;
-            border-radius: 7px;
-            font-size: 14px;
-            transition: 0.3s;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 13px;
+            transition: .3s;
         }
 
-        .primary-btn {
-            color: #001018;
-            background: linear-gradient(100deg, #dffaff, var(--blue));
-            box-shadow: 0 0 25px rgba(56,189,248,0.3);
+        .primary {
+            background: #00ffc3;
+            color: #00110d;
+            font-weight: bold;
+            box-shadow: 0 0 25px rgba(0,255,195,.2);
         }
 
-        .primary-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 40px rgba(56,189,248,0.6);
+        .primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 0 40px rgba(0,255,195,.5);
         }
 
-        .secondary-btn {
-            border: 1px solid #28506a;
-            color: #d8e4ee;
+        .outline {
+            border: 1px solid #333;
+            color: #aaa;
         }
 
-        .secondary-btn:hover {
-            border-color: var(--blue);
-            color: var(--blue);
+        .outline:hover {
+            border-color: #00ffc3;
+            color: #00ffc3;
         }
 
-        .socials {
+        /* RIGHT SIDE */
+
+        .hero-right {
+            width: 35%;
             display: flex;
-            gap: 20px;
-            margin-top: 30px;
+            justify-content: center;
         }
 
-        .socials a {
-            width: 35px;
-            height: 35px;
-            border: 1px solid #26384c;
+        .orb {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #00ffc344;
             border-radius: 50%;
+            position: relative;
+            animation: rotate 15s linear infinite;
+        }
+
+        .orb::before {
+            content: "";
+            position: absolute;
+            inset: 35px;
+            border: 1px solid #00ffc333;
+            border-radius: 50%;
+        }
+
+        .orb::after {
+            content: "A";
+            position: absolute;
+            inset: 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #9aa8ba;
-            transition: 0.3s;
+            font-size: 130px;
+            font-weight: bold;
+            color: #00ffc3;
+            text-shadow: 0 0 50px #00ffc3;
+            animation: counter 15s linear infinite;
         }
 
-        .socials a:hover {
-            color: var(--blue);
-            border-color: var(--blue);
-            box-shadow: 0 0 15px rgba(56,189,248,0.4);
-        }
-
-        /* SPACE IMAGE */
-
-        .space {
+        .orb-dot {
             position: absolute;
-            right: -5%;
-            top: 12%;
-            width: 60%;
-            height: 80%;
-            background:
-                radial-gradient(circle at 50% 75%, #1c5d9c 0%, #07152a 25%, transparent 55%),
-                radial-gradient(circle at 70% 25%, #7770ff 0%, transparent 15%),
-                linear-gradient(120deg, transparent 30%, rgba(0,180,255,0.1));
+            width: 15px;
+            height: 15px;
+            background: #00ffc3;
             border-radius: 50%;
-            opacity: 0.9;
+            top: 10px;
+            left: 50%;
+            box-shadow: 0 0 30px #00ffc3;
         }
 
-        .space::before {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 50%;
-            bottom: 0;
-            border-radius: 50% 50% 0 0;
-            background:
-                radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px);
-            background-size: 45px 45px;
-            opacity: 0.5;
-            transform: perspective(400px) rotateX(55deg);
-        }
-
-        .astronaut {
-            position: absolute;
-            right: 20%;
-            top: 25%;
-            font-size: 120px;
-            filter: drop-shadow(0 0 30px rgba(80,180,255,0.5));
-            animation: float 5s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%,100% {
-                transform: translateY(0);
+        @keyframes rotate {
+            from {
+                transform: rotate(0);
             }
+            to {
+                transform: rotate(360deg);
+            }
+        }
 
-            50% {
-                transform: translateY(-15px);
+        @keyframes counter {
+            from {
+                transform: rotate(0);
+            }
+            to {
+                transform: rotate(-360deg);
             }
         }
 
         /* STATS */
 
         .stats {
+            border-top: 1px solid #181818;
+            border-bottom: 1px solid #181818;
             display: grid;
             grid-template-columns: repeat(4,1fr);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-            padding: 25px 6%;
-            background: #040811;
         }
 
         .stat {
-            padding: 10px 30px;
-            border-right: 1px solid var(--border);
-        }
-
-        .stat:last-child {
-            border: none;
+            padding: 30px 7%;
+            border-right: 1px solid #181818;
         }
 
         .stat-number {
-            font-size: 25px;
-            font-weight: bold;
-            color: var(--blue);
+            font-size: 30px;
+            color: #00ffc3;
         }
 
-        .stat-title {
-            font-size: 13px;
-            color: white;
-            margin-top: 4px;
-        }
-
-        .stat-description {
-            color: var(--muted);
+        .stat p {
+            color: #666;
+            margin-top: 5px;
             font-size: 12px;
         }
 
-        /* GENERAL */
+        /* SECTIONS */
 
         section {
-            padding: 100px 6%;
+            padding: 120px 8%;
         }
 
-        .section-label {
-            color: var(--blue);
-            font-size: 11px;
-            letter-spacing: 4px;
-            font-weight: bold;
-            margin-bottom: 12px;
+        .label {
+            color: #00ffc3;
+            font-family: monospace;
+            font-size: 12px;
+            margin-bottom: 15px;
         }
 
-        .section-title {
-            font-size: 38px;
-            margin-bottom: 20px;
+        .title {
+            font-size: 45px;
+            margin-bottom: 50px;
         }
 
-        .section-title span {
-            color: var(--blue);
+        .title span {
+            color: #00ffc3;
         }
 
         /* ABOUT */
 
-        .about-grid {
+        .about {
             display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 60px;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
         }
 
-        .about-text {
-            color: var(--muted);
+        .about p {
+            color: #777;
+            line-height: 2;
             font-size: 16px;
-            line-height: 1.9;
         }
 
-        .about-card {
-            background: linear-gradient(145deg,#09111d,#050912);
-            border: 1px solid var(--border);
-            border-radius: 15px;
-            padding: 30px;
+        .code-box {
+            background: #090909;
+            border: 1px solid #202020;
+            border-radius: 8px;
+            padding: 25px;
+            font-family: monospace;
+            color: #777;
+            box-shadow: 0 0 40px rgba(0,255,195,.04);
         }
 
-        .timeline {
-            position: relative;
-            padding-left: 25px;
-            border-left: 1px solid #315271;
+        .code-box .green-text {
+            color: #00ffc3;
         }
 
-        .timeline-item {
-            margin-bottom: 28px;
-            position: relative;
+        .code-box .purple {
+            color: #b47cff;
         }
 
-        .timeline-item::before {
-            content: "";
-            position: absolute;
-            left: -31px;
-            top: 5px;
-            width: 10px;
-            height: 10px;
-            background: var(--blue);
-            border-radius: 50%;
-            box-shadow: 0 0 12px var(--blue);
-        }
-
-        .timeline-year {
-            color: var(--blue);
-            font-size: 13px;
-            font-weight: bold;
-        }
-
-        .timeline-item p {
-            color: var(--muted);
-            font-size: 13px;
-            margin-top: 5px;
+        .code-box .yellow {
+            color: #ffd166;
         }
 
         /* SKILLS */
 
-        .skills-section {
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: 1.1fr 1fr;
-            gap: 70px;
-        }
-
-        .skill-list {
-            display: grid;
-            grid-template-columns: repeat(2,1fr);
-            gap: 10px;
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
         }
 
         .skill {
-            padding: 18px;
-            background: #080e18;
-            border: 1px solid var(--border);
-            border-radius: 7px;
-            transition: 0.3s;
+            padding: 15px 22px;
+            border: 1px solid #222;
+            background: #090909;
+            color: #999;
+            transition: .3s;
         }
 
         .skill:hover {
-            border-color: var(--blue);
-            transform: translateY(-3px);
-        }
-
-        .skill-name {
-            font-size: 14px;
-        }
-
-        .exploring {
-            border-left: 1px solid #294c68;
-            padding-left: 35px;
-        }
-
-        .exploring li {
-            color: var(--muted);
-            margin: 13px 0;
-            font-size: 14px;
-        }
-
-        .exploring li::marker {
-            color: var(--blue);
+            border-color: #00ffc3;
+            color: #00ffc3;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0,255,195,.08);
         }
 
         /* PROJECTS */
 
-        .projects-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: end;
-            margin-bottom: 35px;
-        }
-
         .projects {
             display: grid;
-            grid-template-columns: repeat(4,1fr);
-            gap: 18px;
+            grid-template-columns: repeat(3,1fr);
+            gap: 20px;
         }
 
         .project {
-            min-height: 300px;
-            border: 1px solid var(--border);
-            border-radius: 10px;
+            min-height: 320px;
+            padding: 30px;
+            border: 1px solid #1d1d1d;
+            background:
+                linear-gradient(145deg,#0c0c0c,#070707);
+            position: relative;
             overflow: hidden;
-            background: #080e17;
-            transition: 0.4s;
+            transition: .4s;
         }
 
         .project:hover {
             transform: translateY(-8px);
-            border-color: var(--blue);
-            box-shadow: 0 10px 40px rgba(0,150,255,0.12);
+            border-color: #00ffc355;
         }
 
-        .project-image {
-            height: 145px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 55px;
-            background:
-                radial-gradient(circle, rgba(50,170,255,0.3), transparent 50%),
-                #050a12;
+        .project-number {
+            font-family: monospace;
+            color: #333;
+            font-size: 13px;
         }
 
-        .project-content {
-            padding: 20px;
+        .project-icon {
+            font-size: 50px;
+            margin: 35px 0 20px;
         }
 
         .project h3 {
-            margin-bottom: 8px;
+            font-size: 22px;
+            margin-bottom: 12px;
         }
 
         .project p {
-            color: var(--muted);
+            color: #666;
             font-size: 13px;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
-        .tags {
-            margin-top: 15px;
-        }
-
-        .tag {
-            display: inline-block;
-            padding: 4px 9px;
-            margin-right: 4px;
-            margin-bottom: 4px;
-            border-radius: 20px;
-            background: #101c2b;
-            border: 1px solid #20364c;
-            color: #8fb5d0;
+        .project-tags {
+            position: absolute;
+            bottom: 25px;
+            left: 30px;
+            color: #00ffc3;
             font-size: 10px;
+            font-family: monospace;
         }
 
-        /* QUOTE */
+        /* GOALS */
 
-        .quote {
-            text-align: center;
-            padding: 80px 15%;
-            border-top: 1px solid var(--border);
+        .goals {
+            border-top: 1px solid #181818;
+            border-bottom: 1px solid #181818;
         }
 
-        .quote p {
-            font-size: 28px;
-            font-style: italic;
-            color: #dce5ef;
+        .goal-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 20px;
         }
 
-        .quote span {
-            display: block;
-            color: var(--blue);
-            font-size: 12px;
-            margin-top: 20px;
-            letter-spacing: 3px;
+        .goal {
+            padding: 35px;
+            background: #080808;
+            border-left: 2px solid #00ffc3;
+        }
+
+        .goal h3 {
+            margin-bottom: 15px;
+        }
+
+        .goal p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 14px;
         }
 
         /* CONTACT */
 
         .contact {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            background:
-                radial-gradient(circle at center, rgba(0,120,255,0.12), transparent 45%);
         }
 
         .contact h2 {
-            font-size: 45px;
-            margin-bottom: 15px;
+            font-size: clamp(45px,7vw,90px);
+            line-height: 1;
+        }
+
+        .contact h2 span {
+            color: #00ffc3;
         }
 
         .contact p {
-            color: var(--muted);
-            margin-bottom: 30px;
+            color: #666;
+            margin: 25px 0;
         }
 
         /* FOOTER */
 
         footer {
-            padding: 25px 6%;
-            border-top: 1px solid var(--border);
+            border-top: 1px solid #181818;
+            padding: 25px 8%;
             display: flex;
             justify-content: space-between;
-            color: #687386;
-            font-size: 12px;
-        }
-
-        /* ANIMATION */
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: 0.8s;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
+            color: #444;
+            font-size: 11px;
+            font-family: monospace;
         }
 
         /* MOBILE */
 
-        @media(max-width: 900px) {
+        @media(max-width:900px) {
 
-            .nav-links {
+            nav ul {
                 display: none;
             }
 
-            .hero-content {
-                width: 100%;
-            }
-
-            .space {
-                opacity: 0.25;
-                width: 100%;
-                right: -30%;
-            }
-
-            .stats {
-                grid-template-columns: repeat(2,1fr);
-            }
-
-            .stat {
-                margin-bottom: 15px;
-            }
-
-            .about-grid,
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .projects {
-                grid-template-columns: repeat(2,1fr);
-            }
-        }
-
-        @media(max-width: 600px) {
-
-            .logo {
-                font-size: 18px;
-            }
-
-            .nav-button {
+            .status {
                 display: none;
-            }
-
-            section {
-                padding: 70px 6%;
             }
 
             .hero {
-                padding-top: 110px;
+                display: block;
+                padding-top: 140px;
             }
 
-            .hero h1 {
-                font-size: 46px;
+            .hero-left {
+                width: 100%;
             }
 
-            .hero-buttons {
-                flex-direction: column;
+            .hero-right {
+                width: 100%;
+                margin-top: 70px;
+            }
+
+            .orb {
+                width: 220px;
+                height: 220px;
+            }
+
+            .orb::after {
+                font-size: 90px;
             }
 
             .stats {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: repeat(2,1fr);
             }
 
-            .stat {
-                padding: 10px;
+            .about {
+                grid-template-columns: 1fr;
             }
 
             .projects {
                 grid-template-columns: 1fr;
             }
 
-            .skill-list {
+            .goal-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media(max-width:500px) {
+
+            h1 {
+                font-size: 55px;
+            }
+
+            .stats {
                 grid-template-columns: 1fr;
             }
 
-            .quote {
-                padding: 60px 8%;
+            .buttons {
+                flex-direction: column;
             }
 
-            .quote p {
-                font-size: 21px;
-            }
-
-            .contact h2 {
-                font-size: 34px;
+            .btn {
+                text-align: center;
             }
 
             footer {
                 flex-direction: column;
                 gap: 10px;
-                text-align: center;
             }
         }
+
     </style>
 </head>
 
 
 <body>
 
-    <!-- NAVBAR -->
+    <div class="glow"></div>
+
+
+    <!-- NAVIGATION -->
 
     <nav>
 
         <div class="logo">
-            A<span>THARV</span>
+            ATHARV<span>.</span>
         </div>
 
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#goals">Goals</a></li>
-            <li><a href="#contact">Contact</a></li>
+        <ul>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#skills">STACK</a></li>
+            <li><a href="#projects">PROJECTS</a></li>
+            <li><a href="#goals">VISION</a></li>
         </ul>
 
-        <a href="#contact" class="nav-button">
-            Let's Connect →
-        </a>
+        <div class="status">
+            <span class="dot"></span>
+            BUILDING
+        </div>
 
     </nav>
 
 
     <!-- HERO -->
 
-    <section class="hero" id="home">
+    <section class="hero">
 
-        <div class="hero-content">
+        <div class="hero-left">
 
-            <div class="eyebrow">
-                ENGINEER × BUILDER × PROBLEM SOLVER
+            <div class="terminal">
+                atharv@digital-lab:~$ whoami
             </div>
 
             <h1>
-                Turning Ideas into
+                BUILD.
                 <br>
-                <span class="gradient-text">
-                    Real-World Impact.
-                </span>
+                <span class="green">BREAK.</span>
+                <br>
+                REBUILD.
             </h1>
 
             <p class="hero-description">
-                I'm Atharv — a Computer Science engineering student driven
-                by curiosity, technology and the desire to understand how
-                things actually work.
-                I build, experiment and explore at the intersection of
-                AI, robotics, physics and engineering.
+
+                Computer Science student exploring the intersection of
+                software, artificial intelligence, robotics, physics and
+                real-world engineering.
+
+                <br><br>
+
+                I don't just want to use technology.
+                I want to understand what is happening underneath it —
+                and eventually build systems of my own.
+
             </p>
 
-            <div class="hero-buttons">
+            <div class="buttons">
 
-                <a href="#projects" class="primary-btn">
-                    View My Work →
+                <a href="#projects" class="btn primary">
+                    ENTER MY LAB →
                 </a>
 
-                <a href="#" class="secondary-btn">
-                    Download Resume ↓
+                <a href="#contact" class="btn outline">
+                    CONTACT
                 </a>
-
-            </div>
-
-            <div class="socials">
-
-                <a href="#">GH</a>
-                <a href="#">in</a>
-                <a href="#">✉</a>
-                <a href="#">◎</a>
 
             </div>
 
         </div>
 
 
-        <div class="space">
+        <div class="hero-right">
 
-            <div class="astronaut">
-                👨‍🚀
+            <div class="orb">
+
+                <div class="orb-dot"></div>
+
             </div>
 
         </div>
@@ -765,35 +657,23 @@
     <div class="stats">
 
         <div class="stat">
-
             <div class="stat-number">CSE</div>
-            <div class="stat-title">Engineering Student</div>
-            <div class="stat-description">VIT-AP</div>
-
+            <p>ENGINEERING</p>
         </div>
 
         <div class="stat">
-
-            <div class="stat-number">1000+</div>
-            <div class="stat-title">Hours of Learning</div>
-            <div class="stat-description">Coding & Engineering</div>
-
+            <div class="stat-number">C++</div>
+            <p>PRIMARY LANGUAGE</p>
         </div>
 
         <div class="stat">
-
-            <div class="stat-number">10+</div>
-            <div class="stat-title">Ideas & Projects</div>
-            <div class="stat-description">Exploring & Building</div>
-
+            <div class="stat-number">AI</div>
+            <p>EXPLORING</p>
         </div>
 
         <div class="stat">
-
             <div class="stat-number">∞</div>
-            <div class="stat-title">Curiosity</div>
-            <div class="stat-description">Always What's Next</div>
-
+            <p>CURIOSITY</p>
         </div>
 
     </div>
@@ -801,115 +681,113 @@
 
     <!-- ABOUT -->
 
-    <section id="about" class="reveal">
+    <section id="about">
 
-        <div class="about-grid">
+        <div class="label">
+            01 // ABOUT
+        </div>
+
+        <h2 class="title">
+            The person behind
+            <span>the code.</span>
+        </h2>
+
+        <div class="about">
 
             <div>
 
-                <div class="section-label">
-                    ABOUT ME
-                </div>
+                <p>
 
-                <h2 class="section-title">
-                    More Than a <span>Student.</span>
-                    <br>
-                    A Builder of <span>Possibilities.</span>
-                </h2>
-
-                <p class="about-text">
-
-                    I'm Atharv — a Computer Science Engineering student
-                    with a strong interest in technology and science.
+                    I'm Atharv, a Computer Science Engineering student
+                    interested in understanding technology from the
+                    software layer all the way down to the physical world.
 
                     <br><br>
 
-                    I'm currently strengthening my foundations in C++,
-                    Data Structures & Algorithms and Python while exploring
-                    artificial intelligence, robotics and computer hardware.
+                    My current journey revolves around C++, Data Structures
+                    & Algorithms, Python, AI/ML and robotics.
 
                     <br><br>
 
-                    My curiosity goes beyond software. I want to understand
-                    the engineering behind robots, spacecraft, CPUs,
-                    autonomous systems and complex machines.
+                    But the curiosity doesn't stop at software.
+
+                    CPUs, GPUs, MOSFETs, autonomous robots, rockets,
+                    spacecraft and quantum systems are all things I want
+                    to understand.
 
                     <br><br>
 
-                    Long term, I'm particularly interested in quantum
-                    physics, advanced mathematics and the technologies that
-                    could shape the next generation of engineering.
+                    The long-term goal is simple:
+
+                    <strong style="color:white">
+                        learn deeply → build aggressively → solve real problems.
+                    </strong>
 
                 </p>
 
             </div>
 
 
-            <div class="about-card">
+            <div class="code-box">
 
-                <div class="section-label">
-                    MY JOURNEY
-                </div>
+                <p>
+                    <span class="purple">class</span>
+                    <span class="yellow">Atharv</span>
+                    {
+                </p>
 
-                <div class="timeline">
+                <br>
 
-                    <div class="timeline-item">
+                <p>
+                    &nbsp;&nbsp;
+                    <span class="green-text">interest</span>
+                    = [
+                </p>
 
-                        <div class="timeline-year">
-                            2023
-                        </div>
+                <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;"AI",
+                </p>
 
-                        <p>
-                            Completed Class 12 and began exploring
-                            different paths in technology.
-                        </p>
+                <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;"Robotics",
+                </p>
 
-                    </div>
+                <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;"Physics",
+                </p>
 
+                <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;"Quantum",
+                </p>
 
-                    <div class="timeline-item">
+                <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;"Space"
+                </p>
 
-                        <div class="timeline-year">
-                            2025
-                        </div>
+                <p>
+                    &nbsp;&nbsp;];
+                </p>
 
-                        <p>
-                            Started Computer Science Engineering
-                            at VIT-AP.
-                        </p>
+                <br>
 
-                    </div>
+                <p>
+                    &nbsp;&nbsp;
+                    <span class="green-text">mission</span>
+                    =
+                    "Build something meaningful";
+                </p>
 
+                <br>
 
-                    <div class="timeline-item">
+                <p>
+                    &nbsp;&nbsp;
+                    <span class="green-text">status</span>
+                    = "Learning...";
+                </p>
 
-                        <div class="timeline-year">
-                            2025+
-                        </div>
-
-                        <p>
-                            Building projects, learning C++,
-                            DSA, AI and robotics.
-                        </p>
-
-                    </div>
-
-
-                    <div class="timeline-item">
-
-                        <div class="timeline-year">
-                            FUTURE
-                        </div>
-
-                        <p>
-                            Work on advanced technology,
-                            robotics, space systems and
-                            quantum science.
-                        </p>
-
-                    </div>
-
-                </div>
+                <p>
+                    }
+                </p>
 
             </div>
 
@@ -920,115 +798,31 @@
 
     <!-- SKILLS -->
 
-    <section id="skills" class="skills-section reveal">
+    <section id="skills">
 
-        <div class="skills-grid">
+        <div class="label">
+            02 // TECH STACK
+        </div>
 
-            <div>
+        <h2 class="title">
+            Things I'm
+            <span>learning.</span>
+        </h2>
 
-                <div class="section-label">
-                    SKILLS & INTERESTS
-                </div>
+        <div class="skills">
 
-                <h2 class="section-title">
-                    Tools I use.
-                    <span>Technologies I love.</span>
-                </h2>
-
-                <div class="skill-list">
-
-                    <div class="skill">
-                        C++ / Programming
-                    </div>
-
-                    <div class="skill">
-                        Python
-                    </div>
-
-                    <div class="skill">
-                        Data Structures
-                    </div>
-
-                    <div class="skill">
-                        Algorithms
-                    </div>
-
-                    <div class="skill">
-                        AI / ML
-                    </div>
-
-                    <div class="skill">
-                        Robotics
-                    </div>
-
-                    <div class="skill">
-                        Computer Vision
-                    </div>
-
-                    <div class="skill">
-                        Electronics
-                    </div>
-
-                    <div class="skill">
-                        IoT
-                    </div>
-
-                    <div class="skill">
-                        Mathematics
-                    </div>
-
-                    <div class="skill">
-                        Quantum Physics
-                    </div>
-
-                    <div class="skill">
-                        Space Technology
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="exploring" id="goals">
-
-                <div class="section-label">
-                    CURRENTLY EXPLORING
-                </div>
-
-                <ul>
-
-                    <li>
-                        Advanced DSA & System Design
-                    </li>
-
-                    <li>
-                        Robotics & Autonomous Systems
-                    </li>
-
-                    <li>
-                        AI Agents & LLMs
-                    </li>
-
-                    <li>
-                        Computer Hardware — CPUs, GPUs & MOSFETs
-                    </li>
-
-                    <li>
-                        Space & Rocket Engineering
-                    </li>
-
-                    <li>
-                        Quantum Computing
-                    </li>
-
-                    <li>
-                        Real-world Product Development
-                    </li>
-
-                </ul>
-
-            </div>
+            <div class="skill">C++</div>
+            <div class="skill">Python</div>
+            <div class="skill">DSA</div>
+            <div class="skill">Algorithms</div>
+            <div class="skill">AI / ML</div>
+            <div class="skill">Computer Vision</div>
+            <div class="skill">Robotics</div>
+            <div class="skill">IoT</div>
+            <div class="skill">Electronics</div>
+            <div class="skill">Mathematics</div>
+            <div class="skill">Quantum Physics</div>
+            <div class="skill">Space Technology</div>
 
         </div>
 
@@ -1037,144 +831,148 @@
 
     <!-- PROJECTS -->
 
-    <section id="projects" class="reveal">
+    <section id="projects">
 
-        <div class="projects-header">
-
-            <div>
-
-                <div class="section-label">
-                    FEATURED PROJECTS
-                </div>
-
-                <h2 class="section-title">
-                    Ideas I'm <span>Building.</span>
-                </h2>
-
-            </div>
-
-            <a href="#" class="secondary-btn">
-                View All Projects →
-            </a>
-
+        <div class="label">
+            03 // PROJECTS
         </div>
 
+        <h2 class="title">
+            Ideas becoming
+            <span>systems.</span>
+        </h2>
 
         <div class="projects">
 
 
-            <!-- PROJECT 1 -->
-
             <div class="project">
 
-                <div class="project-image">
+                <div class="project-number">
+                    PROJECT_001
+                </div>
+
+                <div class="project-icon">
                     🤖
                 </div>
 
-                <div class="project-content">
+                <h3>RoboDog</h3>
 
-                    <h3>RoboDog</h3>
+                <p>
+                    Autonomous robotic platform exploring navigation,
+                    perception, interaction and real-world assistance.
+                </p>
 
-                    <p>
-                        An autonomous robotic platform concept designed
-                        for real-world assistance, environmental interaction
-                        and intelligent navigation.
-                    </p>
-
-                    <div class="tags">
-                        <span class="tag">Robotics</span>
-                        <span class="tag">AI</span>
-                        <span class="tag">Hardware</span>
-                    </div>
-
+                <div class="project-tags">
+                    ROBOTICS // AI // HARDWARE
                 </div>
 
             </div>
 
 
-            <!-- PROJECT 2 -->
-
             <div class="project">
 
-                <div class="project-image">
+                <div class="project-number">
+                    PROJECT_002
+                </div>
+
+                <div class="project-icon">
                     🎧
                 </div>
 
-                <div class="project-content">
+                <h3>JARVIS</h3>
 
-                    <h3>JARVIS</h3>
+                <p>
+                    A wearable AI assistant concept focused on natural
+                    interaction, voice intelligence and personalized
+                    assistance.
+                </p>
 
-                    <p>
-                        A wearable AI assistant concept focused on
-                        personalized interaction, intelligent assistance
-                        and seamless human-computer interaction.
-                    </p>
-
-                    <div class="tags">
-                        <span class="tag">AI</span>
-                        <span class="tag">IoT</span>
-                        <span class="tag">Voice</span>
-                    </div>
-
+                <div class="project-tags">
+                    AI // IOT // VOICE
                 </div>
 
             </div>
 
 
-            <!-- PROJECT 3 -->
-
             <div class="project">
 
-                <div class="project-image">
-                    🌐
+                <div class="project-number">
+                    PROJECT_003
                 </div>
 
-                <div class="project-content">
+                <div class="project-icon">
+                    ⚡
+                </div>
 
-                    <h3>ATECH</h3>
+                <h3>ATECH</h3>
 
-                    <p>
-                        A technology initiative exploring intelligent
-                        systems, futuristic products and engineering
-                        solutions for real-world problems.
-                    </p>
+                <p>
+                    A technology initiative exploring intelligent products,
+                    engineering systems and futuristic applications.
+                </p>
 
-                    <div class="tags">
-                        <span class="tag">Innovation</span>
-                        <span class="tag">AI</span>
-                        <span class="tag">Systems</span>
-                    </div>
-
+                <div class="project-tags">
+                    SYSTEMS // AI // INNOVATION
                 </div>
 
             </div>
 
 
-            <!-- PROJECT 4 -->
+        </div>
 
-            <div class="project">
+    </section>
 
-                <div class="project-image">
-                    🚀
-                </div>
 
-                <div class="project-content">
+    <!-- VISION -->
 
-                    <h3>Engineering Lab</h3>
+    <section id="goals" class="goals">
 
-                    <p>
-                        Exploring the systems behind rockets, computers,
-                        robots, electronics and other complex engineering
-                        machines.
-                    </p>
+        <div class="label">
+            04 // VISION
+        </div>
 
-                    <div class="tags">
-                        <span class="tag">Physics</span>
-                        <span class="tag">Hardware</span>
-                        <span class="tag">Research</span>
-                    </div>
+        <h2 class="title">
+            What's
+            <span>next?</span>
+        </h2>
 
-                </div>
+        <div class="goal-grid">
+
+            <div class="goal">
+
+                <h3>ROBOTICS</h3>
+
+                <p>
+                    Build physical machines instead of only writing
+                    simulations. Learn sensors, control systems,
+                    embedded systems and autonomous navigation.
+                </p>
+
+            </div>
+
+
+            <div class="goal">
+
+                <h3>AI</h3>
+
+                <p>
+                    Move from using AI tools toward understanding and
+                    building intelligent systems, agents and machine
+                    learning models.
+                </p>
+
+            </div>
+
+
+            <div class="goal">
+
+                <h3>QUANTUM</h3>
+
+                <p>
+                    Develop the mathematics and physics required to
+                    understand quantum mechanics and eventually
+                    quantum computing.
+                </p>
 
             </div>
 
@@ -1183,45 +981,31 @@
     </section>
 
 
-    <!-- QUOTE -->
-
-    <div class="quote reveal">
-
-        <p>
-            "The goal isn't just to learn technology.
-            It's to understand it well enough to build something new."
-        </p>
-
-        <span>
-            — ATHARV
-        </span>
-
-    </div>
-
-
     <!-- CONTACT -->
 
-    <section id="contact" class="contact reveal">
+    <section id="contact" class="contact">
 
-        <div class="section-label">
-            LET'S BUILD
+        <div>
+
+            <div class="label">
+                05 // CONNECTION
+            </div>
+
+            <h2>
+                LET'S BUILD
+                <br>
+                <span>SOMETHING.</span>
+            </h2>
+
+            <p>
+                Open to technology, engineering and interesting projects.
+            </p>
+
+            <a href="mailto:your@email.com" class="btn primary">
+                SEND MESSAGE →
+            </a>
+
         </div>
-
-        <h2>
-            Let's Build a
-            <span class="gradient-text">
-                Better Tomorrow.
-            </span>
-        </h2>
-
-        <p>
-            Open to interesting projects, collaborations
-            and opportunities.
-        </p>
-
-        <a href="mailto:your@email.com" class="primary-btn">
-            Get In Touch →
-        </a>
 
     </section>
 
@@ -1231,42 +1015,15 @@
     <footer>
 
         <div>
-            © 2026 Atharv
+            ATHARV // DIGITAL LAB
         </div>
 
         <div>
-            Engineer × Builder × Learner
+            © 2026
         </div>
 
     </footer>
 
-
-    <!-- JAVASCRIPT -->
-
-    <script>
-
-        const sections = document.querySelectorAll(".reveal");
-
-        function revealSections() {
-
-            sections.forEach(section => {
-
-                const position =
-                    section.getBoundingClientRect().top;
-
-                if (position < window.innerHeight - 100) {
-                    section.classList.add("active");
-                }
-
-            });
-
-        }
-
-        window.addEventListener("scroll", revealSections);
-
-        revealSections();
-
-    </script>
 
 </body>
 </html>
